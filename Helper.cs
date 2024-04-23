@@ -81,7 +81,7 @@ namespace csharp_calcolatrice
 				return n2;
 		}
 
-		public static double Potenza(int nBase, int nEsponente)
+		public static double Potenza(double nBase, double nEsponente)
 		{
 			if (nBase == 0 && nEsponente == 0)
 				return 1;
@@ -106,6 +106,21 @@ namespace csharp_calcolatrice
             }
             return risultato;
 		}
-	}
+
+        public static double TruncateIfNeeded(double num)
+        {
+            double truncatedNum = Math.Truncate(num);
+            double difference = num - truncatedNum;
+            int differenceInt = (int)Math.Round(difference * 100);
+            if (differenceInt == 0)
+            {
+                return (int)truncatedNum;
+            }
+            else
+            {
+                return num;
+            }
+        }
+    }
 }
 
